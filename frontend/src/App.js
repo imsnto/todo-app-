@@ -4,6 +4,7 @@ import './App.css';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import Navbar from './components/Navbar';
 import TaskDetailPage from './components/TaskDetailPage';
 
@@ -44,11 +45,11 @@ function App() {
         <div className="p-6">
           <div className="flex items-center justify-between mb-8">
             <div>
-              {isAuthenticated ? (
+              {/* {isAuthenticated ? (
                 <h1 className="text-3xl font-bold">Welcome, {user?.username}!</h1>
               ) : (
                 <h1 className="text-3xl font-bold">Welcome!</h1>
-              )}
+              )} */}
             </div>
 
             {isAuthenticated && (
@@ -67,6 +68,16 @@ function App() {
               element={
                 !isAuthenticated ? (
                   <LoginForm onLogin={handleLogin} />
+                ) : (
+                  <Navigate to="/tasks" replace />
+                )
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                !isAuthenticated ? (
+                  <RegisterForm />
                 ) : (
                   <Navigate to="/tasks" replace />
                 )
