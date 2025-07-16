@@ -140,5 +140,33 @@ Below are screenshots showcasing the app's key functionalities:
 3. Access the app at `http://localhost:3000`.
 4. Register a new user, log in, and manage tasks (create, view, update, delete).
 
+
+## Deployment Process
+
+### 1. Django Backend (Web Service)
+1. In Render Dashboard, click **New > Web Service**.
+2. Connect your GitHub repository and select the branch.
+3. Configure:
+   - **Name**: `todo-app-backend`.
+   - **Environment**: `Python 3`.
+   - **Build Command**: `pip install -r requirements.txt`.
+   - **Start Command**: `gunicorn todo.wsgi:application --bind 0.0.0.0:8000`.
+   - **Instance Type**: Free or paid tier.
+4. Under **Advanced**, add environment variables:
+   - `DJANGO_SECRET_KEY`: Your secure Django secret key.
+   - `DEBUG`: `False`
+5. Click **Create Web Service**. Backend URL: `https://todo-app-wezp.onrender.com`.
+
+### 2. React Frontend (Static Site)
+1. In Render Dashboard, click **New > Static Site**.
+2. Connect your GitHub repository (or `frontend/` subfolder).
+3. Configure:
+   - **Name**: `todo-app-frontend`.
+   - **Build Command**: `npm run build`.
+   - **Publish Directory**: `build`.
+4. Under **Advanced**, add environment variable:
+   - `REACT_APP_BASE_URL`: `https://todo-app-wezp.onrender.com`.
+5. Click **Create Static Site**. Frontend URL: `https://todo-app-1-qruo.onrender.com`.
+
 ## Notes
 - Ensure the backend and frontend are running concurrently for full functionality.
