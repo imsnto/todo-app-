@@ -9,7 +9,7 @@ This is a full-stack To-Do application built with **Django** (backend) and **Rea
 - **User-Specific Tasks**: Only authenticated users can manage their own tasks.
 - **API**: RESTful endpoints for authentication and task operations.
 - **Frontend**: React-based UI with forms for registration, login, and task management, plus a task list view with status toggle and delete functionality.
-- **Task Filtering**: Filter tasks by status (`Pending`/`Completed`) using a dropdown in the frontend.
+- **Task Filtering**: Filter tasks by status (`Pending`/`Completed`/`In Progress`) using a dropdown in the frontend.
 
 ## Project Structure
 ```
@@ -49,7 +49,6 @@ todo-app/
 ├── docs/
 │   ├── todo-app.postman_collection.json
 ├── README.md
-└── .env
 ```
 
 ## Setup Instructions
@@ -114,6 +113,27 @@ todo-app/
   
 **Note**: All task endpoints require `Authorization: Bearer <access_token>` in the request header.
 
+## Screenshots
+Below are screenshots showcasing the app's key functionalities:
+
+- **Login Page**:
+  ![Login Page](/docs/screenshots/login.png)
+
+- **Signup Page**:
+  !['Signup Page](/docs/screenshots/register.png)
+
+- **Home Page**:  
+  ![Home Page](/docs/screenshots/home-page.png)
+
+- **Create Task**:  
+  ![Create Task](/docs/screenshots/create-task.png)
+
+- **Details Task**:  
+  ![Details Task](/docs/screenshots/detail-task.png)
+
+- **Task Filtering**:
+  ![Filter Task](/docs/screenshots/filter.png)
+
 ## Running the Application
 1. Start the backend server (`python manage.py runserver`).
 2. Start the frontend server (`npm start`).
@@ -122,5 +142,3 @@ todo-app/
 
 ## Notes
 - Ensure the backend and frontend are running concurrently for full functionality.
-- For production, secure the JWT tokens and use HTTPS.
-- SQLite is used for simplicity; switch to PostgreSQL for scalability.
