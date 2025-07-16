@@ -9,7 +9,8 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [error, setError] = useState('');
-  const baseUrl = 'http://127.0.0.1:8000';
+  
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const registerUrl = '/api/v1/accounts/register/';
   const navigate = useNavigate();
 

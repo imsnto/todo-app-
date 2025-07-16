@@ -9,11 +9,10 @@ const TaskForm = () => {
   const [dueDate, setDueDate] = useState('');
   const [error, setError] = useState(null);
 
-  // Handle form submission
+  const baseUrl = process.env.REACT_APP_BASE_URL 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare the data to send
     const taskData = {
       title,
       description,
@@ -22,17 +21,13 @@ const TaskForm = () => {
     };
 
     try {
-        console.log("token: ", localStorage.getItem('token')); // Debugging line to check token
-      // Send POST request to backend (replace `baseUrl` with your backend URL)
-      const response = await axios.post('http://127.0.0.1:8000/api/v1/tasks/', taskData, {
+        console.log("token: ", localStorage.getItem('token')); 
+      const response = await axios.post(`${baseUrl}/api/v1/tasks/`, taskData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`, // Include token if required
+          Authorization: `Bearer ${localStorage.getItem('token')}`, 
         }
       });
 
-      // Success: You can redirect or reset form here
-      console.log('Task created:', response.data);
-      // Reset form fields
       setTitle('');
       setDescription('');
       setStatus('pending');
@@ -48,10 +43,8 @@ const TaskForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <h2 className="text-2xl text-center font-semibold">Create New Task</h2>
 
-        {/* Error message */}
         {error && <p className="text-red-500 text-center">{error}</p>}
 
-        {/* Title */}
         <div>
           <input
             type="text"

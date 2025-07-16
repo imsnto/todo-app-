@@ -120,7 +120,7 @@ Below are screenshots showcasing the app's key functionalities:
   ![Login Page](/docs/screenshots/login.png)
 
 - **Signup Page**:
-  !['Signup Page](/docs/screenshots/register.png)
+  ![Signup Page](/docs/screenshots/register.png)
 
 - **Home Page**:  
   ![Home Page](/docs/screenshots/home-page.png)

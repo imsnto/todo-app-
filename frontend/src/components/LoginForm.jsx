@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const baseUrl = 'http://127.0.0.1:8000';
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
   const loginUrl = '/api/v1/accounts/login/';
 
   const handleSubmit = async (e) => {
+    console.log(baseUrl);
     e.preventDefault();
     try {
       const response = await axios.post(`${baseUrl}${loginUrl}`, {

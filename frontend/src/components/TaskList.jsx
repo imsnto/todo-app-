@@ -16,8 +16,11 @@ const TaskList = () => {
     { value: 'completed', label: 'Completed' }
   ];
 
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
   // Fetch tasks from backend when component mounts
   useEffect(() => {
+    const baseUrl = process.env.REACT_APP_BASE_URL;
     const fetchTasks = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -25,7 +28,7 @@ const TaskList = () => {
           console.log('No token found');
           return;
         }
-        const response = await axios.get('http://127.0.0.1:8000/api/v1/tasks/', {
+        const response = await axios.get(`${baseUrl}/api/v1/tasks/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -44,7 +47,7 @@ const TaskList = () => {
     setDeletingId(taskId);
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://127.0.0.1:8000/api/v1/tasks/${taskId}/`, {
+      await axios.delete(`${baseUrl}/api/v1/tasks/${taskId}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

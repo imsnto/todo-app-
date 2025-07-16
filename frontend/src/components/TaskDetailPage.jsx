@@ -16,7 +16,12 @@ const TaskDetailPage = () => {
     { value: 'completed', label: 'Completed' }
   ];
 
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
+
   useEffect(() => {
+      const baseUrl = process.env.REACT_APP_BASE_URL;
+
     const fetchTask = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -24,7 +29,7 @@ const TaskDetailPage = () => {
           navigate('/login');
           return;
         }
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/tasks/${id}/`, {
+        const response = await axios.get(`${baseUrl}/api/v1/tasks/${id}/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,7 +51,7 @@ const TaskDetailPage = () => {
         console.log("Updating task status to:", newStatus); // Debugging line
       const token = localStorage.getItem('token');
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/v1/tasks/${id}/`,
+        `${baseUrl}/api/v1/tasks/${id}/`,
         { status: newStatus },
         {
           headers: {
