@@ -1,14 +1,9 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
 
   if (!token) {
     return null;
@@ -37,12 +32,7 @@ const Navbar = () => {
             >
               Create Task
             </Link>
-            <button
-              onClick={handleLogout}
-              className="text-gray-600 hover:text-gray-900"
-            >
-              Logout
-            </button>
+
           </div>
         </div>
       </div>
