@@ -26,7 +26,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo-app-wezp.onrender.com', 'www.todo-app-wezp.onrender.com']
 
 
 # Application definition
