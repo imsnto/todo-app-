@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 
 from rest_framework.views import APIView
@@ -39,6 +39,7 @@ class LoginView(APIView):
 
             user = authenticate(username=username, password=password)
             if user is not None:
+                login(request, user)
                 refresh = RefreshToken.for_user(user)
                 return Response(
                     {
