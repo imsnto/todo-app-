@@ -26,8 +26,8 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['todo-app-wezp.onrender.com', 'www.todo-app-wezp.onrender.com']
-
+#ALLOWED_HOSTS = ['todo-app-wezp.onrender.com', 'www.todo-app-wezp.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
-    #'corsheaders',
+    'corsheaders',
 
 
     'accounts',
